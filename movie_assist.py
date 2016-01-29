@@ -19,6 +19,12 @@ data = {
 "tomatoUserRating":jformat["tomatoUserRating"],
 "tomatoUserMeter":jformat["tomatoUserMeter"],
 }
+
+#def analyze(data):
+	
+		
+	
+	
 for item in data.values(): 
 	print(item)
 

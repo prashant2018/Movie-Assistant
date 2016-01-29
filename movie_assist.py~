@@ -8,7 +8,7 @@ jformat =json.loads(r.text)
 
 data = {
 
-"Title":jformat["Title"],
+#"Title":jformat["Title"],
 "Plot":jformat["Plot"],
 "Year":jformat["Year"],
 "imdbRating":jformat["imdbRating"],
@@ -19,6 +19,12 @@ data = {
 "tomatoUserRating":jformat["tomatoUserRating"],
 "tomatoUserMeter":jformat["tomatoUserMeter"],
 }
+
+#def analyze(data):
+	
+		
+	
+	
 for item in data.values(): 
 	print(item)
 
