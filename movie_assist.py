@@ -6,7 +6,7 @@ li_show=["Title","Plot","Year","imdbRating","tomatoMeter"]
 def search():
 	movie = input("Enter Movie Name : ")
 	url = "http://www.omdbapi.com/?"
-	print('\n\n')
+	print()
 	#http://www.omdbapi.com/?t=the martian&tomatoes=true
 
 	try:
@@ -75,9 +75,10 @@ class MovieData(object):
 			else:
 				self.total=self.total+10
 				self.data[i] = float(self.data[i])
-		#self.x=(self.data['imdbRating']+(self.data['tomatoMeter']/10)+self.data['tomatoRating']+self.data['tomatoUserRating']*2 )
-		#print(str(self.total),str(self.x))
-		self.assist = ((self.data['imdbRating']+(self.data['tomatoMeter']/10)+self.data['tomatoRating']+self.data['tomatoUserRating']*2 )/self.total)*10
+		if self.total == 0:
+			self.assist=-1
+		else:
+			self.assist = ((self.data['imdbRating']+(self.data['tomatoMeter']/10)+self.data['tomatoRating']+self.data['tomatoUserRating']*2 )/self.total)*10
 		
 		return self.assist
 		
@@ -92,15 +93,16 @@ mv.show()
 
 def verdict():
 	assist = mv.analyze()
-	
-	if assist >= 0 and assist <=2 :
+	if assist == -1:
+		print("Ratings Not Available")
+	elif assist >= 0 and assist <=2 :
 		print("Never Watch it ! Just delete the Movie")	
 	elif assist > 2 and assist <=3 :
 		print("Simple Advise. Dont watch ")
 	elif assist > 3 and assist <=4 :
 		print("Waste your Time If you have it in plenty. ")		
 	elif assist > 4 and assist <=5 :
-		print("CWatch at your own risk")
+		print("Watch at your own risk")
 	elif assist > 5 and assist <=6 :
 		print("Can watch but not recommended")
 	elif assist > 6 and assist <=7 :
@@ -110,13 +112,12 @@ def verdict():
 	elif assist > 8 and assist <=8.5 :
 		print("Nice one. You should definetly watch it !")
 	elif assist > 8.5 and assist <=9 :
-		print("Awesome. Must Watch! Highly Recommended!")
+		print("Very Good. Must Watch! Highly Recommended!")
 	elif assist > 9 and assist <=10 :
-		print("If you didn't watched this, you watched nothing. Best of all.")
+		print("Awesome!.If you didn't watched this, you watched nothing. Best of all.")
 
-print("-----------------------------------------------------------------------------------------------------------------------------")				
+print("-----------------------------------------------------------------------------------------------------------------------------","\n")
+print("---------------------------------------------------------The Final Verdict------------------------------------------------")				
 verdict()
-print("-----------------------------------------------------------------------------------------------------------------------------")	
-
-
+print("-----------------------------------------------------------------------------------------------------------------------------","\n")	
 

@@ -6,7 +6,7 @@ li_show=["Title","Plot","Year","imdbRating","tomatoMeter"]
 def search():
 	movie = input("Enter Movie Name : ")
 	url = "http://www.omdbapi.com/?"
-	print('\n\n')
+	print()
 	#http://www.omdbapi.com/?t=the martian&tomatoes=true
 
 	try:
@@ -100,7 +100,7 @@ def verdict():
 	elif assist > 3 and assist <=4 :
 		print("Waste your Time If you have it in plenty. ")		
 	elif assist > 4 and assist <=5 :
-		print("CWatch at your own risk")
+		print("Watch at your own risk")
 	elif assist > 5 and assist <=6 :
 		print("Can watch but not recommended")
 	elif assist > 6 and assist <=7 :
@@ -110,13 +110,12 @@ def verdict():
 	elif assist > 8 and assist <=8.5 :
 		print("Nice one. You should definetly watch it !")
 	elif assist > 8.5 and assist <=9 :
-		print("Awesome. Must Watch! Highly Recommended!")
+		print("Very Good. Must Watch! Highly Recommended!")
 	elif assist > 9 and assist <=10 :
 		print("If you didn't watched this, you watched nothing. Best of all.")
 
-print("-----------------------------------------------------------------------------------------------------------------------------")				
+print("-----------------------------------------------------------------------------------------------------------------------------","\n")
+print("---------------------------------------------------------The Final Verdict------------------------------------------------")				
 verdict()
-print("-----------------------------------------------------------------------------------------------------------------------------")	
-
-
+print("-----------------------------------------------------------------------------------------------------------------------------","\n")	
 
